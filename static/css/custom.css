@@ -1,0 +1,118 @@
+body
+{
+   background: linear-gradient(-45deg,#df0024,#009f3d,#000000,#f4c300,#0085c7);
+}
+h1
+{
+    font-weight: bold;
+    text-align: center;
+}
+
+h5
+{
+    color: white;
+}
+
+.header
+{
+    color:white;
+    height:150px;
+}
+
+
+
+/*Header properties*/
+
+.top-left
+{
+    padding: 0;
+}
+
+.top-middle h1
+{
+    align-content: center;
+    /*font-family: Calibri;*/
+    margin-top: 50px;
+}
+
+.top-right
+{
+    padding: 0;
+}
+
+.top-right img
+{
+    float:right;
+}
+
+.button-row
+{
+    height: 30px;
+    align-items:center;
+}
+
+.intro_button
+{
+   background-color:  #009f3d;
+   color: white;
+}
+
+
+/*Chart properties*/
+/*
+blue 0085c7
+yellow f4c300
+black 000000
+green 009f3d
+red df0024
+*/
+
+.dc-chart g.row text
+{
+   fill: black;
+   font-size: 12px;
+}
+
+.chart-title{
+   background-color: #009f3d;
+}
+
+.chart-stage
+{
+    background-color:white;
+    color: black;
+}
+
+.chart-wrapper
+{
+    border-color: lightgreen;
+    border-width: 2px;
+}
+
+.fa-bar-chart-o:before, .fa-bar-chart:before {
+    content: "\f080";
+}
+
+.fa fa-pie-chart:before {
+    content: "\f200";
+}
+
+.fa fa fa-globe:before {
+    content: "\f0ac";
+}
+
+.fa fa-calendar:before {
+    content: "\f073";
+}
+
+.fa fa-user:before {
+    content: "\f007";
+}
+
+fa fa-home:before {
+    content: "\f015";
+}
+
+
+
+
