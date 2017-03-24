@@ -1,0 +1,1 @@
+web: gunicorn summer_olympics:app
