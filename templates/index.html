@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>A Century Of Medals At The Summer Olympic Games (1900-2000)</title>
 
-       <title>A Century Of Medals At The Summer Olympic Games (1900-2000)</title>
-
-       <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/bootstrap.min.css')}}">
-       <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/keen-dashboards.css')}}">
-       <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
-       <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
-       <link rel="stylesheet" href="{{ url_for ('static', filename='css/introjs.css')}}">
-       <link rel="stylesheet" href="{{ url_for ('static', filename='css/font-awesome.css')}}">
+        <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/keen-dashboards.css')}}">
+        <link rel="stylesheet" href="{{ url_for ('static', filename='lib/css/dc.css')}}">
+        <link rel="stylesheet" href="{{ url_for ('static', filename='css/custom.css')}}">
+        <link rel="stylesheet" href="{{ url_for ('static', filename='css/introjs.css')}}">
+        <link rel="stylesheet" href="{{ url_for ('static', filename='css/font-awesome.css')}}">
+        <link href="https://fonts.googleapis.com/css?family=Baloo" rel="stylesheet">
 
     </head>
 
@@ -17,20 +17,13 @@
         <!-- Header -->
         <div class=" header container-fluid ">
             <div class="row">
-                <div class="col-sm-12">
-                    <div class=" top-left col-sm-2">
-                        <img src = "../static/images/olympic-rings.png" alt="Banner">
-                    </div>
-                    <div class=" top-middle col-sm-8">
-                        <h1>A Century Of Medals At The Summer Olympic Games (1900-2000)</h1>
-                    </div>
-                    <div class=" top-right col-sm-2">
-                        <img src = "../static/images/olympic-rings.png" alt="Banner">
-                    </div>
+                <div class=" top col-sm-12">
+                    <h1>A Century Of Medals At The Summer Olympic Games (1900-2000)</h1>
                 </div>
              </div>
         </div>
         <!-- Header -->
+        <div class=".spacer"></div>
 
         <!-- Reset and User Guide -->
         <div class=" button-row container-fluid ">
@@ -70,17 +63,16 @@
 
                                 <!-- Year Selector -->
                                 <div class="col-sm-6">
-                                       <div class="chart-wrapper">
-                                           <div class="chart-title">
-                                               <h5><i class="fa fa-calendar" aria-hidden="true"></i> Year Selector</h5>
-                                           </div>
-                                           <div class="chart-stage">
-                                               <div id="menu2-select" data-step="2" data-intro="Pick a year from the dropdown to get medal history for that year!" style="font-weight: normal" data-position="right"></div>
-                                           </div>
-                                       </div>
+                                    <div class="chart-wrapper">
+                                        <div class="chart-title">
+                                            <h5><i class="fa fa-calendar" aria-hidden="true"></i> Year Selector</h5>
+                                        </div>
+                                        <div class="chart-stage">
+                                            <div id="menu2-select" data-step="2" data-intro="Pick a year from the dropdown to get medal history for that year!" style="font-weight: normal" data-position="right"></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- Year Selector -->
-
                             </div>
                             <!-- Selector Row -->
 
@@ -91,8 +83,7 @@
                                 <div class="col-sm-6">
                                     <div class="chart-wrapper">
                                         <div class="chart-title">
-                                            <h5><i class="fa fa-pie-chart" aria-hidden="true"></i> Medals Won By Gender Chart</h5>
-
+                                            <h5><i class="fa fa-pie-chart" aria-hidden="true"></i> Medals Won By Gender</h5>
                                         </div>
                                         <div class="chart-stage">
                                             <div id="gender-chart" data-step="3" data-intro="This chart displays the ratio of medals won by Gender. Click on the gender to get the medal history for the selected gender. If you have selected another chart, you can refer to this chart for gender ratio results. " style="..." data-position="right"></div>
@@ -105,7 +96,7 @@
                                 <div class="col-sm-6">
                                     <div class="chart-wrapper">
                                         <div class="chart-title">
-                                            <h5><i class="fa fa-pie-chart" aria-hidden="true"></i> Medals Ratio Chart</h5>
+                                            <h5><i class="fa fa-pie-chart" aria-hidden="true"></i> Medals Ratio</h5>
                                         </div>
                                         <div class="chart-stage">
                                             <div id="medals-chart" data-step="4" data-intro="This chart displays the ratio of medals won by position. Click on the position to get the medal history for the selected position. If you have selected another chart, you can refer to this chart for medals results." style="..." data-position="right"></div>
@@ -113,7 +104,6 @@
                                     </div>
                                 </div>
                                 <!-- Medals Chart -->
-
                             </div>
                             <!-- Pie Charts row -->
 
@@ -123,13 +113,13 @@
                                 <div class="col-sm-12">
                                    <div class="chart-wrapper">
                                        <div class="chart-title">
-                                               <h5><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Time Vs Medals Chart</h5>
+                                           <h5><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Time Vs Medals</h5>
                                        </div>
                                        <div class="chart-stage">
                                            <div id="timevsmedals-Chart" data-step="5" data-intro="This chart displays the number of medals won per year" style="..." data-position="right"></div>
                                        </div>
                                    </div>
-                               </div>
+                                </div>
                                <!-- Time VS Medals Chart -->
                              </div>
                             <!-- Time VS Medals Chart Row -->
@@ -141,7 +131,7 @@
                                 <div class="col-sm-12">
                                    <div class="chart-wrapper">
                                        <div class="chart-title">
-                                           <h5><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Top 10 Medal Winners Chart</h5>
+                                           <h5><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Top 10 Medal Winners</h5>
                                        </div>
                                        <div class="chart-stage">
                                            <div id="total-medals-chart" data-step="6" data-intro="Tihs chart displays the top 10 medal winners by country" style="..." data-position="right"></div>
@@ -161,7 +151,7 @@
                                 <!-- Number of Medals By Sport Chart -->
                                 <div class="chart-wrapper">
                                     <div class="chart-title">
-                                            <h5><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Number of Medals By Sport Chart</h5>
+                                        <h5><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Number of Medals By Sport</h5>
                                     </div>
                                     <div class="chart-stage">
                                         <div id="sport-chart" data-step="7" data-intro="This chart displays the number of medals won by sport" style="..." data-position="left" ></div>
@@ -183,38 +173,35 @@
 
                                 <div class="chart-wrapper">
                                     <div class="chart-title">
-                                           <h5><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Number Of Countries That Won Medals Chart</h5>
+                                        <h5><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Number Of Countries That Won Medals</h5>
                                     </div>
                                     <div class="chart-stage">
                                         <div id="time-chart" data-step="8" data-intro="This chart displays the number of countries that won medals per year" style="..." data-position="right"></div>
                                     </div>
                                 </div>
-
                             <!-- Number of Countries that won medals Chart -->
                         </div>
-
-
 
                         <div class="col-sm-6">
                             <!-- Number of Sports By Year Chart -->
 
                                <div class="chart-wrapper">
                                    <div class="chart-title">
-                                       <h5><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Number Of Sports By Year Chart</h5>
+                                       <h5><i class="fa fa-bar-chart-o" aria-hidden="true"></i> Number Of Sports By Year</h5>
                                    </div>
                                    <div class="chart-stage">
                                        <div id="sportyear-chart" data-step="9" data-intro="This chart displays the number of sports per year" style="..." data-position="left"></div>
                                    </div>
                                </div>
-
                            <!-- Number of Sports By Year Chart -->
                         </div>
+
                     </div>
                 </div>
              </div>
 
             <hr>
-            <p class="small text-muted"> Data viz &#9829; from Martin Allard </p>
+            <p>Copyright &copy; Martin Allard 2017</p>
 
         </div><!-- Main Container For Graphs -->
 
@@ -227,5 +214,6 @@
             <script src="{{ url_for ('static', filename='lib/js/keen.min.js')}}"></script>
             <script src="{{ url_for ('static', filename='js/graph.js')}}"></script>
             <script src="{{ url_for ('static', filename='js/intro.js')}}"></script>
+
     </body>
 </html>

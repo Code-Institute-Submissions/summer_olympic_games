@@ -23,7 +23,6 @@ FIELDS = {'Year': True, 'Country': True, 'Gender': True, 'Sport': True,
 def index():
    return render_template("index.html")
 
-
 @app.route("/olympics/summer")
 def olympics_summer():
     #connection = MongoClient(MONGODB_HOST, MONGODB_PORT)

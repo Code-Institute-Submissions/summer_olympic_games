@@ -1,11 +1,35 @@
+/*** Color Pallette ****/
+/*
+    Background
+    Dark Greeen 0d8c3e
+
+    Charts
+    Blue 0085c7
+    Yellow f4c300
+    Green 009f3d
+    Red df0024
+
+    Chart Title
+    Green 009f3d
+
+    Chart Wrapper
+    lightgreen
+*/
+/*** Color Pallette ****/
+
+
+/*Page Properties*/
+
 body
 {
-   background: linear-gradient(-45deg,#df0024,#009f3d,#000000,#f4c300,#0085c7);
+    background-color: #0d8c3e;
 }
+
 h1
 {
     font-weight: bold;
     text-align: center;
+	font-family: 'Baloo', cursive;
 }
 
 h5
@@ -19,30 +43,14 @@ h5
     height:150px;
 }
 
-
-
-/*Header properties*/
-
-.top-left
+.spacer
 {
-    padding: 0;
+    height:25px;
 }
 
-.top-middle h1
+.top h1
 {
-    align-content: center;
-    /*font-family: Calibri;*/
     margin-top: 50px;
-}
-
-.top-right
-{
-    padding: 0;
-}
-
-.top-right img
-{
-    float:right;
 }
 
 .button-row
@@ -53,28 +61,24 @@ h5
 
 .intro_button
 {
-   background-color:  #009f3d;
-   color: white;
+    background-color:  #009f3d;
+    color: white;
 }
+
+/*Page Properties*/
 
 
 /*Chart properties*/
-/*
-blue 0085c7
-yellow f4c300
-black 000000
-green 009f3d
-red df0024
-*/
 
 .dc-chart g.row text
 {
-   fill: black;
-   font-size: 12px;
+    fill: black;
+    font-size: 12px;
 }
 
-.chart-title{
-   background-color: #009f3d;
+.chart-title
+{
+    background-color: #009f3d;
 }
 
 .chart-stage
@@ -89,30 +93,6 @@ red df0024
     border-width: 2px;
 }
 
-.fa-bar-chart-o:before, .fa-bar-chart:before {
-    content: "\f080";
-}
-
-.fa fa-pie-chart:before {
-    content: "\f200";
-}
-
-.fa fa fa-globe:before {
-    content: "\f0ac";
-}
-
-.fa fa-calendar:before {
-    content: "\f073";
-}
-
-.fa fa-user:before {
-    content: "\f007";
-}
-
-fa fa-home:before {
-    content: "\f015";
-}
-
-
+/*Chart properties*/
 
 

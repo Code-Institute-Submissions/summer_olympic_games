@@ -4,17 +4,17 @@ queue()
 
 function makeGraphs(error, projectsJson)
 {
-   //Clean projectsJson data
+   /*Clean projectsJson data*/
    var olympics_summer = projectsJson;
    olympics_summer.forEach(function (d)
    {
        d["Year"] = +d["Year"];
    });
 
-   //Create a Crossfilter instance
+   /*Create a Crossfilter instance*/
    var ndx = crossfilter(olympics_summer);
 
-   //Define Dimensions
+   /*Define Dimensions*/
    var yearDim = ndx.dimension(function (d) {
        return d["Year"];
    });
@@ -39,7 +39,7 @@ function makeGraphs(error, projectsJson)
        return d["Medal"];
    });
 
-   //Calculate metrics
+   /*Calculate metrics*/
    var numOlympicsByGender = generDim.group();
    var numOlympicsByMedals = medalDim.group();
    var numTotalMedalsByCountry = countryDim.group();
@@ -61,10 +61,11 @@ function makeGraphs(error, projectsJson)
             var cv = {};
             cv.year = nested_data[i].key;
             cv.numofcountries = nested_data[i].values.length;
+            console.log(cv);
             cv.numofsports = nested_data2[i].values.length;
             dv.push(cv);}
 
-   //Create a Crossfilter instance
+   /*Create a Crossfilter instance*/
    var ndx2 = crossfilter(dv);
 
    var yearDimArray = ndx2.dimension(function (d) {
@@ -79,65 +80,15 @@ function makeGraphs(error, projectsJson)
        return d["numofsports"];
    });
 
-    ///////////////////////////////////////////////////////
-
-   /*
-   var numtotalMedalsByCountry = yearDim.groupAll().reduceSum(function (d)
-   {
-      return d.Country;
-   });
-   var numtotalMedalsByCountry = yearDim.groupAll().reduceSum(function (d) {return d["Country"];
-   var numtotalMedalsByCountry = yearDim.group();
-
-   var numtotalMedalsByCountry = yearDim.group().reduce(function (p, d) {
-            if(d.country in p.country){
-                p.country[d.x] += 1
-            }
-            else{
-                p.country[d.x] = 1;
-                p.country_count++;
-            }
-            return p;
-        },
-
-        function (p, d) {
-            p.country[d.x]--;
-            if(p.country[d.x] === 0){
-                delete p.country[d.x];
-                p.country_count--;
-            }
-            return p;
-        },
-
-        function () {
-                return {country: {},
-                country_count: 0};
-            });*/
-    ////////////////////////////////////////////////////////
-    /*
-    var numTotalCountriesByOlympics =
-
-       var numOlympicsMedalsByYear = yearDim.group();
-
-
-       var numCountry = countryDim.group();
-       var numCountry2 = countryDim.groupAll();
-
-       var numProjectsByResourceType = countryDim.group();
-
-       var numProjectsByFundingStatus = sportDim.group();
-
-       var numProjectByFocusarea2 = eventDim.group();*/
-    //////////////////////////////////////////////////////
-
-           /*
+/*** Color Pallette ****/
+/*
+    Charts
     blue 0085c7
     yellow f4c300
-    black 000000
     green 009f3d
     red df0024
-
-    */
+*/
+/*** Color Pallette ****/
 
    //Define values (to be used in charts)
    var minYear = yearDim.bottom(1)[0]["Year"];
@@ -152,17 +103,19 @@ function makeGraphs(error, projectsJson)
    var timeChart = dc.barChart("#time-chart");
    var sportsyearChart = dc.lineChart("#sportyear-chart");
 
-
+   <!-- Country Selector Chart -->
    var selectCountry = dc.selectMenu('#menu-select')
        .dimension(countryDim)
        .group(countryGroup);
 
+   <!-- Year Selector Chart -->
    var selectYear = dc.selectMenu('#menu2-select')
        .dimension(yearDim)
        .group(numListYears);
 
+   <!-- Gender Chart -->
    genderratioChart
-       .ordinalColors(['#0085c7','#df0024'] )
+       .ordinalColors(['#0085c7','#df0024'])
        .height(220)
        .radius(90)
        .innerRadius(40)/*this give its donut shape */
@@ -173,8 +126,9 @@ function makeGraphs(error, projectsJson)
        .dimension(generDim)
        .group(numOlympicsByGender);
 
+   <!-- Medals Chart -->
    medalsChart
-       .ordinalColors(['#A8511F','#FBD10B','#8E8E8F'] )
+       .ordinalColors(['#A8511F','#FBD10B','#8E8E8F'])
        .height(220)
        .radius(90)
        .innerRadius(40)/*this give its donut shape */
@@ -185,8 +139,9 @@ function makeGraphs(error, projectsJson)
        .dimension(medalDim)
        .group(numOlympicsByMedals);
 
+   <!-- Time VS Medals Chart Row -->
    timevsemdalsChart
-       .ordinalColors(['#0085c7'] )
+       .ordinalColors(['#0085c7'])
        .width(750)
        .height(200)
        .margins({top: 10, right: 80, bottom: 30, left: 40})
@@ -201,7 +156,7 @@ function makeGraphs(error, projectsJson)
        .yAxisLabel("No. Of Medals")
        .yAxis().ticks(5);
 
-
+   <!-- Top 10 Total Medals Chart Row -->
    totalmedalsChart
        .ordinalColors(['#0085c7','#f4c300','#009f3d','#df0024'] )
        .width(750)
@@ -216,6 +171,7 @@ function makeGraphs(error, projectsJson)
        totalmedalsChart.rowsCap(10);
        totalmedalsChart.othersGrouper(false);
 
+   <!-- Number of Medals By Sport Chart -->
    sportChart
        .ordinalColors(['#0085c7','#f4c300','#009f3d','#df0024'] )
        .width(750)
@@ -228,8 +184,9 @@ function makeGraphs(error, projectsJson)
        .xAxis().ticks(20);
        sportChart.ordering(function (d){ return -d.value});
 
+   <!-- Number of Countries that won medals Chart -->
    timeChart
-       .ordinalColors(['#f4c300'] )
+       .ordinalColors(['#f4c300'])
        .width(750)
        .height(200)
        .margins({top: 10, right: 80, bottom: 30, left: 40})
@@ -244,8 +201,9 @@ function makeGraphs(error, projectsJson)
        .yAxisLabel("No. Of Countries")
        .yAxis().ticks(5);
 
+   <!-- Number of Sports By Year Chart -->
    sportsyearChart
-       .ordinalColors(['#df0024'] )
+       .ordinalColors(['#df0024'])
        .width(750)
        .height(200)
        .margins({top: 10, right: 80, bottom: 30, left: 40})
@@ -261,6 +219,4 @@ function makeGraphs(error, projectsJson)
        .yAxis().ticks(5);
 
    dc.renderAll();
-
-
 }
